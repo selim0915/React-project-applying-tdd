@@ -13,17 +13,17 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '..', 'dist'),
     publicPath: '/',
     clean: true
   },
   devtool: 'source-map',
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'public'),
+      directory: path.resolve(__dirname, '..', 'public'),
       publicPath: '/'
     },
-    port: process.env.WEBPACK_PORT || 3002,
+    port: 50002,
     compress: true,
     historyApiFallback: true,
     hot: true,
@@ -70,8 +70,8 @@ module.exports = {
       'process.env': JSON.stringify(process.env)
     }),
     new HtmlWebpackPlugin({
-      favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
-      template: path.resolve(__dirname, 'public', 'index.html'),
+      favicon: path.resolve(__dirname, '..', 'public', 'favicon.ico'),
+      template: path.resolve(__dirname, '..', 'public', 'index.html'),
       templateParameters: {
         title: mode === 'development' ? 'DEV SAMPEOPLE' : 'SAMPEOPLE'
       },
